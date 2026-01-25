@@ -4,8 +4,8 @@
   "description": "study for Websocket test",
   "license": "ISC",
   "author": "",
-  "type": "commonjs",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-dev": "nodemon --watch ./src ./src/index.js"
@@ -13,6 +13,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^5.2.1",
+    "mysql2": "^3.16.1",
     "nodemon": "^3.1.11"
   }
 }

@@ -25,3 +25,7 @@ https://github.dev/santiq/bulletproof-nodejs
 - routes
 - config
   - id, address등 환경설정에 필요한 중요한 자료들을 모아두는 통제소
+
+# Todo list
+- [ ] .env 파일 작성 후 뭐가 필요한지 파악하기
+- [ ] Push를 이용해 로그인 확인 필요
