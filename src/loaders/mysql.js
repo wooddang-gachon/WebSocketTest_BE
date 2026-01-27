@@ -1,27 +1,35 @@
 // Get the client
-const mysql = require("mysql2");
+import mysql from "mysql2/promise";
+import config from "../config/index.js";
 
-// Create the connection to database
-const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  database: "webSocketDB",
-});
+export default async () => {
+  // Create the connection to database
+  const connection = await mysql.createConnection({
+    host: config.databaseHOST,
+    user: config.databaseUSER,
+    password: config.databasePASSWORD,
+    database: config.databaseNAME,
+  });
 
-// A simple SELECT query
-connection.query(
-  'SELECT * FROM `table` WHERE `name` = "Page" AND `age` > 45',
-  function (err, results, fields) {
-    console.log(results); // results contains rows returned by server
-    console.log(fields); // fields contains extra meta data about results, if available
-  },
-);
+  // A simple SELECT query
+  // try {
+  //   const [results, fields] = await connection.query("SELECT * FROM `USER`");
 
-// Using placeholders
-connection.query(
-  "SELECT * FROM `table` WHERE `name` = ? AND `age` > ?",
-  ["Page", 45],
-  function (err, results) {
-    console.log(results);
-  },
-);
+  //   console.log(results); // results contains rows returned by server
+  //   console.log(fields); // fields contains extra meta data about results, if available
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  // Using placeholders
+  // try {
+  //   const [results] = await connection.query(
+  //     "SELECT * FROM `table` WHERE `name` = ? AND `age` > ?",
+  //     ["Page", 45],
+  //   );
+
+  //   console.log(results);
+  // } catch (err) {
+  //   console.log(err);
+  // }
+};
