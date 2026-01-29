@@ -23,4 +23,11 @@ export default {
   databaseUSER: process.env.mysql2_USER,
   databasePASSWORD: process.env.mysql2_PASSWORD,
   databaseNAME: process.env.mysql2_DATABASE,
+
+  /**
+   * API configs
+   */
+  api: {
+    prefix: '/api',
+  }
 };
