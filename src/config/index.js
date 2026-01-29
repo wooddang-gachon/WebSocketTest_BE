@@ -19,6 +19,19 @@ export default {
   /**
    * That long string from mlab
    */
+
+
+
+
+
+
+
+
+
+
+
+
+    
   databaseHOST: process.env.mysql2_HOST,
   databaseUSER: process.env.mysql2_USER,
   databasePASSWORD: process.env.mysql2_PASSWORD,
@@ -28,6 +41,6 @@ export default {
    * API configs
    */
   api: {
-    prefix: '/api',
-  }
+    prefix: process.env.API_PREFIX,
+  },
 };
