@@ -8,13 +8,6 @@ export default () => {
   firstTestRouter(app);
   authRouter(app);
 
-  console.log("Express:: API loaded");
+  console.log("[Express] API load");
   return app;
-
-  // 404 처리 >> 코드 확인 및 처리 필요
-  //   app.use((req, res, next) => {
-  //     const err = new Error("Not Found");
-  //     err["status"] = 404;
-  //     next(err);
-  //   });
 };

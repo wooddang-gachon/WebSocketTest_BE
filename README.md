@@ -35,3 +35,5 @@ https://github.dev/santiq/bulletproof-nodejs
 
 - esm이랑 cjs 차이 https://doiler.tistory.com/91
   현재는 esm 형식으로 제작하려고 함
+
+- repositories와 같은 sql 함수 기능만 모여져있는 파일은 export function별로 나누는게 이득이다.

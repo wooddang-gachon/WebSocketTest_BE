@@ -3,29 +3,38 @@ import User from "../models/users.js";
 import * as userDB from "../repositories/users.js";
 
 export default {
-  // async SignUp({ id, password, name, email, birth, phone }) {
-  //   const user = new User({
-  //     id: id,
-  //     password: password,
-  //     name: name,
-  //     email: email,
-  //     birth: birth,
-  //     phone: phone,
-  //   });
+  async signUp({ id, pw }) {
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-  //   try {
-  //     const [results, fields] = await connection.query("SELECT * FROM `USER`");
+    try {
+      console.log("[Router] auth signUp endpoint called");
 
-  //     console.log(results); // results contains rows returned by server
-  //     console.log(fields); // fields contains extra meta data about results, if available
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // }
+      // 2. Domain(User) 생성
+      const user = new User({
+        num: getRandomInt(1000, 9999),
+        name: id + "_user",
+        id,
+        pw, // 👉 실제로는 해시해서 넣어야 함
+      });
+
+      // 3. 저장
+      await userDB.save(user);
+      await userDB.show();
+      // 4. 응답용 데이터
+      return {
+        username: user.username,
+        message: "Sign-Up Successful",
+      };
+    } catch (e) {
+      console.log(e);
+    }
+  },
 
   async signIn({ id, pw }) {
     try {
-      console.log("[router] auth signIn endpoint called");
+      console.log("[Router] auth signIn endpoint called");
       // const [results, fields] = await connection.query("SELECT * FROM `USER`");
       userDB.show();
       if (id === "test" && pw === "test1234") {

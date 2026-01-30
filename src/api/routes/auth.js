@@ -21,4 +21,15 @@ export default (app) => {
       return e;
     }
   });
+  route.post("/signUp", async (req, res) => {
+    // const logger = Logger();
+    console.log("Calling Sign-Up endpoint with body: %o", req.body);
+    try {
+      const { username, id, pw } = req.body;
+      const signUpService = await Auth.signUp({ username, id, pw });
+      res.status(200).json(signUpService);
+    } catch (e) {
+      return e;
+    }
+  });
 };
