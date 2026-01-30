@@ -81,6 +81,10 @@ API_PREFIX=/api
 
 nodemon을 사용하여 개발 모드로 서버를 실행합니다. 코드 변경 시 자동으로 서버가 재시작됩니다.
 
+```bash
+npm run start-dev
+```
+
 ### 📝 Dev Log (Study Notes)
 
 개발 과정에서 학습한 내용과 아키텍처 결정 사항을 기록합니다.
