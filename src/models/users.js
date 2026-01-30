@@ -1,15 +1,18 @@
 class User {
-  constructor({ num, birth, phone, username, password }) {
-    this.num = num;
-    this.birth = birth;
-    this.phone = phone;
+  constructor({ id, username, password, role }) {
+    this.id = id;
     this.username = username;
     this.password = password;
+    this.role = role ?? "USER";
   }
 
-  checkPassword(inputPw) {
-    return this.password === inputPw;
+  checkPassword(inputPw, passwordUtil) {
+    return passwordUtil.compare(inputPw, this.password);
+  }
+
+  isAdmin() {
+    return this.role === "ADMIN";
   }
 }
 
-export { User };
+export default User;

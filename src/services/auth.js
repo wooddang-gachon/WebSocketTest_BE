@@ -1,5 +1,6 @@
 import mysql from "mysql2/promise";
-import { User } from "../models/users.js";
+import User from "../models/users.js";
+import * as userDB from "../repositories/users.js";
 
 export default {
   // async SignUp({ id, password, name, email, birth, phone }) {
@@ -26,7 +27,7 @@ export default {
     try {
       console.log("[router] auth signIn endpoint called");
       // const [results, fields] = await connection.query("SELECT * FROM `USER`");
-      
+      userDB.show();
       if (id === "test" && pw === "test1234") {
         return { message: "Sign-In Successful" };
       } else {

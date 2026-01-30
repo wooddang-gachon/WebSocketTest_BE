@@ -1,5 +1,5 @@
 import { Router } from "express";
-// import config from "../../config/index.js";
+import config from "../../config/index.js";
 import Auth from "#services/auth.js";
 import { celebrate, Joi } from "celebrate";
 import { Logger } from "winston";
