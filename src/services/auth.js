@@ -4,21 +4,21 @@ import * as userDB from "../repositories/users.js";
 
 export default {
   async signUp({ id, pw }) {
-    function getRandomInt(min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
     try {
       console.log("[Router] auth signUp endpoint called");
 
-      // 2. Domain(User) 생성
+      // 1. Domain(User) 생성
       const user = new User({
-        num: getRandomInt(1000, 9999),
         name: id + "_user",
         id,
         pw, // 👉 실제로는 해시해서 넣어야 함
       });
-
+      // 2. 아이디 중복 체크
+      const existingUser = await userDB.findByUsername(user.name);
+      if (existingUser) {
+        console.log("[service] Username already exists: %s", user.name);
+        throw new Error("Username already exists");
+      }
       // 3. 저장
       await userDB.save(user);
       await userDB.show();
