@@ -27,5 +27,11 @@ https://github.dev/santiq/bulletproof-nodejs
   - id, address등 환경설정에 필요한 중요한 자료들을 모아두는 통제소
 
 # Todo list
+
 - [ ] .env 파일 작성 후 뭐가 필요한지 파악하기
 - [ ] Push를 이용해 로그인 확인 필요
+
+# 스터디 일지
+
+- esm이랑 cjs 차이 https://doiler.tistory.com/91
+  현재는 esm 형식으로 제작하려고 함
