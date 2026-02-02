@@ -100,6 +100,10 @@ npm run start-dev
 - 결정: SQL 쿼리를 실행하는 Repository 계층의 함수들은 export default 클래스 방식이 아닌, 개별 export function으로 분리했습니다.
 - 이유: 필요한 함수만 가볍게 import 하여 사용할 수 있어 메모리 효율과 코드 가독성 측면에서 이점이 있다고 판단했습니다.
 
+3. 기능 동작 중에더 error throw 할 수 있도록 구조 개선 필요해보임
+
+- 기능 동작 중에 에러(ex 로그인 실패)시에 return false로 구현하려 했는데 그렇게 되면 이후 동작들이나 error 대응이 비효율 적으로 보인다.
+
 ### 👊 Goal
 
 - [x] 아키텍처 기획 및 설계(No pasta)
@@ -108,7 +112,6 @@ npm run start-dev
 - [ ] 기능 동작 logging 기능 구현
 - [ ] 단위 테스트 기능 구현
 - [ ] 동작 중 보안 취약점 해결
-- [ ]
 
 ### ✅ Todo List
 

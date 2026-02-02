@@ -11,6 +11,19 @@ export async function findByUsername(name) {
 
   return new User(rows[0]); // 👈 Domain으로 변환
 }
+export async function checkUser({ id, pw }) {
+  const [results, fields] = await db.query(
+    "SELECT `user_id`, `user_pw`, `user_num` FROM `USER` WHERE `user_id` = ? AND `user_pw` = ?",
+    [id, pw],
+  );
+  if (results.length > 0) {
+    return { message: "Sign-In Successful", id, pw, num: results[0].user_num };
+  } else {
+    const error = new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
+    error.status = 401; // 인증 실패 상태 코드 추가 (선택사항)
+    throw error;
+  }
+}
 
 export async function save(user) {
   console.log("[sql] Saving user to DB: %o", user);

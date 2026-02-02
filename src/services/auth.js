@@ -21,7 +21,6 @@ export default {
       }
       // 3. 저장
       await userDB.save(user);
-      await userDB.show();
       // 4. 응답용 데이터
       return {
         username: user.username,
@@ -34,16 +33,11 @@ export default {
 
   async signIn({ id, pw }) {
     try {
-      console.log("[Router] auth signIn endpoint called");
-      // const [results, fields] = await connection.query("SELECT * FROM `USER`");
-      userDB.show();
-      if (id === "test" && pw === "test1234") {
-        return { message: "Sign-In Successful" };
-      } else {
-        return { message: "Sign-In Failed" };
-      }
-    } catch (err) {
-      console.log(err);
+      console.log("[Service] auth signIn endpoint called");
+      const result = await userDB.checkUser({ id, pw });
+      return result;
+    } catch (e) {
+      console.log(e);
     }
   },
 };
