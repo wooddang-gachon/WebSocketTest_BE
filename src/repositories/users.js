@@ -2,9 +2,9 @@
 import db from "../loaders/mysql.js";
 import User from "../models/users.js";
 
-export async function findByUsername(username) {
-  const [rows] = await db.query("SELECT * FROM `USER` WHERE `username` = ?", [
-    username,
+export async function findByUsername(name) {
+  const [rows] = await db.query("SELECT * FROM `USER` WHERE `user_name` = ?", [
+    name,
   ]);
 
   if (!rows.length) return null;
@@ -15,8 +15,8 @@ export async function findByUsername(username) {
 export async function save(user) {
   console.log("[sql] Saving user to DB: %o", user);
   await db.query(
-    "INSERT INTO `USER` (`user_num`, `user_id`, `user_pw`,`user_birth`,`user_phone_int`,`user_name`) VALUES (?, ?, ?, ?, ?, ?)",
-    [user.num, user.id, user.pw, user.birth, user.phone, user.name],
+    "INSERT INTO `USER` (`user_id`, `user_pw`,`user_birth`,`user_phone_int`,`user_name`) VALUES (?, ?, ?, ?, ?)",
+    [user.id, user.pw, user.birth, user.phone, user.name],
   );
 }
 export async function show() {
