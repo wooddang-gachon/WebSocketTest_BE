@@ -36,3 +36,16 @@ export async function show() {
   const [rows] = await db.query("SELECT * FROM `USER`");
   console.log(rows);
 }
+
+export async function getUserId(user_name) {
+  const [rows] = await db.query(
+    "SELECT user_num FROM USER WHERE user_name = ?",
+    [user_name],
+  );
+
+  if (!rows.length) {
+    throw new Error(`USER NOT FOUND: ${user_name}`);
+  }
+
+  return rows[0].user_num;
+}

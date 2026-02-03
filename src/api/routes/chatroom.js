@@ -17,4 +17,14 @@ export default (app) => {
     const showChatroomService = await Chatroom.showChatroomService({ userNum });
     res.status(200).json(showChatroomService);
   });
+  route.post("/createChatroom", async (req, res) => {
+    console.log("Router]chatroom Service Call Start");
+
+    const { chatroom_name, user_num, member_name } = req.body;
+    const createChatroomService = await Chatroom.createChatroomService({
+      chatroom_name,
+      user_num,
+      member_name,
+    });
+  });
 };

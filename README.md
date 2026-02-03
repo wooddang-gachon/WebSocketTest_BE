@@ -109,6 +109,10 @@ npm run start-dev
 - [x] 아키텍처 기획 및 설계(No pasta)
 - [x] 아키텍처에 도메인별 분할
 - [ ] API 목록 기능구현
+  - [x] login,out, signup
+  - [ ] 채팅방 조회
+  - [ ] 채팅방 생성
+  - [ ] 채팅 기능
 - [ ] 기능 동작 logging 기능 구현
 - [ ] 단위 테스트 기능 구현
 - [ ] 동작 중 보안 취약점 해결
@@ -118,3 +122,5 @@ npm run start-dev
 - [ ] Environment: .env 파일의 필수 변수 목록 확정 및 문서화
 - [ ] Feature: 로그인/회원가입 로직 검증 (Push 테스트 필요)
 - [ ] Future: WebSocket 기능 구현 및 테스트
+- [ ] 현재 showChatroom을 post로 구현했는데 이걸 restful 하게 get으로 수정 필요. 차피 url에 id가 떠도 문제될게 없으니까
+- [ ] 에러처리는 했지만 에러 발생 시 server가 죽어버린다. 원인은 error만 띄우고 그걸 핸들링 하지 않아서 생긴 문제다. 해당 문제 해결 필요
