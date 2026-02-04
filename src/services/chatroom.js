@@ -17,7 +17,7 @@ export default {
   async createChatroomService({ chatroom_name, user_num, member_name }) {
     console.log("[Service] chatroom createChatroomService called");
     try {
-      userDB.getUserId(member_name);
+      await userDB.getUserId(member_name);
       const chatroom_num = await chatroomDB.createChatroomDB({ chatroom_name });
       console.log({ chatroom_name, user_num, member_name, chatroom_num });
       await chatroomDB.createUserChatroomDB({

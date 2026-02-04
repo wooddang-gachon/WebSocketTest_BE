@@ -44,7 +44,9 @@ export async function getUserId(user_name) {
   );
 
   if (!rows.length) {
-    throw new Error(`USER NOT FOUND: ${user_name}`);
+    const error = new Error(`USER NOT FOUND: ${user_name}`);
+    error.status = 401; // 인증 실패 상태 코드 추가 (선택사항)
+    throw error;
   }
 
   return rows[0].user_num;

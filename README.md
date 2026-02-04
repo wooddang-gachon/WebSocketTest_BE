@@ -124,3 +124,4 @@ npm run start-dev
 - [ ] Future: WebSocket 기능 구현 및 테스트
 - [ ] 현재 showChatroom을 post로 구현했는데 이걸 restful 하게 get으로 수정 필요. 차피 url에 id가 떠도 문제될게 없으니까
 - [ ] 에러처리는 했지만 에러 발생 시 server가 죽어버린다. 원인은 error만 띄우고 그걸 핸들링 하지 않아서 생긴 문제다. 해당 문제 해결 필요
+- [ ] 현재 repo에 있는 function에서 다른 sql도 끌어다 쓰는 등 repo와 service의 역할분리가 제대로 안되어있다. repo 내의 1 function은 1sql code 규칙을 제대로 지켜야 할 것 같다.

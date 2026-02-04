@@ -16,7 +16,6 @@ export async function user_chatroomShow() {
 }
 
 export async function createChatroomDB({ chatroom_name }) {
-
   const [result] = await db.query(
     "INSERT INTO `CHATROOM` (`chatroom_name`) VALUES (?)",
     [chatroom_name],
@@ -30,14 +29,18 @@ export async function createUserChatroomDB({
   member_name,
   chatroom_num,
 }) {
-  console.log("[repo] createUserChatroomDB called");
-  const member_num = await userDb.getUserId(member_name);
-  await db.query(
-    "INSERT INTO `USER_CHATROOM` (`user_num`,`chatroom_num`) VALUES (?,?)",
-    [user_num, chatroom_num],
-  );
-  await db.query(
-    "INSERT INTO `USER_CHATROOM` (`user_num`,`chatroom_num`) VALUES (?,?)",
-    [member_num, chatroom_num],
-  );
+  try {
+    console.log("[repo] createUserChatroomDB called");
+    const member_num = await userDb.getUserId(member_name);
+    await db.query(
+      "INSERT INTO `USER_CHATROOM` (`user_num`,`chatroom_num`) VALUES (?,?)",
+      [user_num, chatroom_num],
+    );
+    await db.query(
+      "INSERT INTO `USER_CHATROOM` (`user_num`,`chatroom_num`) VALUES (?,?)",
+      [member_num, chatroom_num],
+    );
+  } catch (e) {
+    console.log(e);
+  }
 }
