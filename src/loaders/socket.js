@@ -1,4 +1,5 @@
 import ChatroomService from "../services/chatroom.js";
+import MessageService from "../services/message.js";
 import { Server } from "socket.io";
 
 export default ({ httpServer }) => {
@@ -10,11 +11,12 @@ export default ({ httpServer }) => {
     // 간단한 테스트 이벤트
     socket.on("message", async (data) => {
       console.log("Message received: ", data);
-      const savedMessage = await ChatroomService.saveChatMessage(data);
+      const savedMessage = await MessageService.saveChatMessageService(data);
+      // console.log(data);
       socket.to(data.chatroom_num).emit("send-message", data); // 모든 클라이언트에게 전송
     });
 
-    socket.on("join_room", async ({chatroom_num }) => {
+    socket.on("join_room", async ({ chatroom_num }) => {
       try {
         // 비즈니스 검증은 서비스에 물어봅니다.
         // 예: "이 유저가 이 방 멤버가 맞나?"

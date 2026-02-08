@@ -30,10 +30,5 @@ export default {
       console.log(e);
     }
   },
-  async saveChatMessage(data) {
-    console.log("[Service] chatroom saveChatMessage called");
-    try {
-      await messageDB.saveMessage(data);
-    } catch (e) {}
-  },
+
 };

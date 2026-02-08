@@ -13,5 +13,6 @@ export async function saveMessage({ chatroom_num, user_num, message_text }) {
     "INSERT INTO `MESSAGE` (`message_text`, `chatroom_num`, `user_num`, `send_time`) VALUES (?, ?, ?, NOW())",
     [message_text, chatroom_num, user_num],
   );
+  console.log(result);
   return result.insertId;
 }

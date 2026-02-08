@@ -119,9 +119,11 @@ npm run start-dev
 
 ### ✅ Todo List
 
-- [ ] Environment: .env 파일의 필수 변수 목록 확정 및 문서화
-- [ ] Feature: 로그인/회원가입 로직 검증 (Push 테스트 필요)
-- [ ] Future: WebSocket 기능 구현 및 테스트
+- [x] Environment: .env 파일의 필수 변수 목록 확정
+- [x] Feature: 로그인/회원가입 로직 검증
+- [x] Socket 기능 구현 및 테스트
 - [ ] 현재 showChatroom을 post로 구현했는데 이걸 restful 하게 get으로 수정 필요. 차피 url에 id가 떠도 문제될게 없으니까
-- [ ] 에러처리는 했지만 에러 발생 시 server가 죽어버린다. 원인은 error만 띄우고 그걸 핸들링 하지 않아서 생긴 문제다. 해당 문제 해결 필요
+- [x] 에러처리는 했지만 에러 발생 시 server가 죽어버린다. 원인은 error만 띄우고 그걸 핸들링 하지 않아서 생긴 문제다. 해당 문제 해결 필요
 - [ ] 현재 repo에 있는 function에서 다른 sql도 끌어다 쓰는 등 repo와 service의 역할분리가 제대로 안되어있다. repo 내의 1 function은 1sql code 규칙을 제대로 지켜야 할 것 같다.
+- [ ] 현재 Loader에 socket 동작 코드까지 있는데 이건 따로 빼야될 것 같다. apt/socket/chat.js로 빼야됨
+- [ ] API 명칭 및 models에 대한 객체 사용, Dto, vo도 구현을 해야될 것 같은데 공부 필요
