@@ -3,7 +3,7 @@ import cors from "cors";
 import config from "../config/index.js";
 import routes from "../api/index.js";
 
-console.log("🔥[router] first-test loaded");
+console.log("[router] first-test loaded");
 
 export default ({ app }) => {
   app.use(cors());

@@ -2,6 +2,7 @@ import mysql from "mysql2/promise";
 import User from "../models/users.js";
 import * as chatroomDB from "../repositories/chatroom.js";
 import * as userDB from "../repositories/users.js";
+import * as messageDB from "../repositories/message.js";
 
 export default {
   async showChatroomService({ userNum }) {
@@ -28,5 +29,11 @@ export default {
     } catch (e) {
       console.log(e);
     }
+  },
+  async saveChatMessage(data) {
+    console.log("[Service] chatroom saveChatMessage called");
+    try {
+      await messageDB.saveMessage(data);
+    } catch (e) {}
   },
 };
